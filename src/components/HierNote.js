@@ -1,11 +1,12 @@
 import React from 'react';
 import { Mycontext } from '../App';
-
+let result 
+let max = 17 
 export default function hierNote() {
   return (
     <Mycontext.Consumer>
         {
-        value =>
+        data =>
         <>
         <thead>
         <tr>
@@ -16,7 +17,21 @@ export default function hierNote() {
         </tr>
         </thead>
         <tbody>
-            {value.map((val => {
+            {
+                result = data.filter((val => (val.note >= max))).map((val => {
+                    return (
+                        <tr key={val.id}>
+                            <td>{val.nom}</td>
+                            <td>{val.prenom}</td>
+                            <td>{val.groupe}</td>
+                            <td>{val.note}</td>
+                        </tr>
+                    )
+                }))
+                }
+                {/* {
+                
+            result.map((val => {
                 return (
                     <tr key={val.id}>
                         <td>{val.nom}</td>
@@ -25,7 +40,8 @@ export default function hierNote() {
                         <td>{val.note}</td>
                     </tr>
                 )
-            }))}
+            }))
+            } */}
         </tbody>
         </>
         }

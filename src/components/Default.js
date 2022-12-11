@@ -5,8 +5,9 @@ import { Mycontext } from '../App';
 const Default = () => {
     return (
         <Mycontext.Consumer>
-        {value => 
+        {data => 
         <>
+        
         <thead>
 
         <tr>
@@ -17,7 +18,7 @@ const Default = () => {
         </tr>
         </thead>
         <tbody>
-            {value.map((val => {
+            {data.map((val => {
                 return (
                     <tr key={val.id}>
                     <td>{val.nom}</td>
@@ -35,7 +36,7 @@ const Default = () => {
     
         {
             
-        value.map((stag => {
+        data.map((stag => {
             return (
                 <tr key={stag.id}>
             <td>{stag.nom}</td>
